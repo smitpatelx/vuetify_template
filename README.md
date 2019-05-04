@@ -1,5 +1,5 @@
-# axios_demo
-
+# Vuetify Templatew
+### Please dont try to push on the master branch after your commits
 ## Project setup
 ```
 npm install
