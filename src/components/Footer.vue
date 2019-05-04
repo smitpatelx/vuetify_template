@@ -3,8 +3,8 @@
     <v-layout justify-center row wrap>
       <v-btn color="white" flat round to="/">Home</v-btn>
       <v-btn color="white" flat round to="/about">About</v-btn>
-      <v-btn color="white" flat round href="https://netdevv.com/blog">Blog</v-btn>
-      <v-btn color="white" flat round href="https://netdevv.com/contact">Contact Us</v-btn>
+      <v-btn color="white" flat round href="https://netdevv.com/blog" target="blank">Blog</v-btn>
+      <v-btn color="white" flat round href="https://netdevv.com/contact" target="blank">Contact Us</v-btn>
       <v-flex primary lighten-2 py-3 text-xs-center white--text xs12>
         &copy;2019 —
         <strong>Js Runtime</strong>

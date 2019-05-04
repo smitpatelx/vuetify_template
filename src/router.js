@@ -4,6 +4,8 @@ import AppHeader from "./components/Header.vue";
 import AppFooter from "./components/Footer.vue";
 import Home from "./view/Home.vue";
 import About from "./view/About.vue";
+import ERROR from "./view/ERROR.vue";
+import Test from "./view/Test.vue";
 
 Vue.use(Router);
 
@@ -26,6 +28,23 @@ let router = new Router({
             components: {
                 header: AppHeader,
                 default: About,
+                footer: AppFooter
+            }
+        },
+        {
+            path: "/test",
+            name: "test",
+            components: {
+                header: AppHeader,
+                default: Test,
+                footer: AppFooter
+            }
+        },
+        {
+            path: "*",
+            components: {
+                header: AppHeader,
+                default: ERROR,
                 footer: AppFooter
             }
         }
