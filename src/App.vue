@@ -1,38 +1,21 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
-
+  <v-app id="app">
+    <router-view name="header"></router-view>
     <v-content>
-      <HelloWorld/>
+      <fade-transition origin="center" mode="out-in" :duration="250">
+        <router-view/>
+      </fade-transition>
     </v-content>
+    <router-view name="footer"></router-view>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import { FadeTransition } from "vue2-transitions";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  },
-  data () {
-    return {
-      //
-    }
+    FadeTransition
   }
-}
+};
 </script>
