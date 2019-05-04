@@ -42,7 +42,7 @@
           </div>
         </v-flex>
         <v-flex xs12>
-          <v-img src="/assets/undraw_landing_page_q6hh.svg">
+          <v-img src="/assets/undraw_landing_page_q6hh.png">
             <div class="fill-height bottom-gradient"></div>
           </v-img>
         </v-flex>
