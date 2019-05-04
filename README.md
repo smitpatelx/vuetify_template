@@ -1,4 +1,4 @@
-# Vuetify Templatew
+# Vuetify Template
 ### Please dont try to push on the master branch after your commits
 ## Project setup
 ```
