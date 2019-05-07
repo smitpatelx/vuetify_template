@@ -8,8 +8,9 @@ import ERROR from "./view/ERROR.vue";
 import Test from "./view/Test.vue";
 
 Vue.use(Router);
-
+var publicPath = process.env.BASE_URL;
 let router = new Router({
+    base: publicPath,
     linkExactActiveClass: "active",
     mode: 'history',
     routes: [
