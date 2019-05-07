@@ -1,6 +1,6 @@
 # Vuetify Template
 ### Please dont try to push on the master branch after your commits
-[Click here for demo](http://jsruntime.rf.gd/)
+[Click here for demo](https://code.netdevv.com/vuetify_template/)
 
 ## Project setup
 ```
