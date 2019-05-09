@@ -1,8 +1,8 @@
 <template>
-  <v-parallax height="600" src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
-    <v-container grid-list-xl text-xs-center>
-      <v-layout>
-        <v-flex xs12 class="white--text text--lighten-2 pt-5 mt-5">
+  <v-parallax height="800" src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
+    <v-container fluid text-xs-center>
+    <v-layout row wrap>
+        <v-flex md6 xs12 class="white--text text--lighten-2 pt-5 mt-5">
           <p class="display-3 font-weight-medium">JS RUNTIME</p>
           <div class="text-xs-center pt-5">
             <v-chip>
@@ -41,7 +41,7 @@
             </v-chip>
           </div>
         </v-flex>
-        <v-flex xs12>
+        <v-flex md6 xs12 class="pt-5">
           <v-img :src="publicPath+'assets/undraw_landing_page_q6hh.png'">
             <div class="fill-height bottom-gradient"></div>
           </v-img>
