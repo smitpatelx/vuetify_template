@@ -42,26 +42,24 @@
 <template>
   <div>
     <v-container class="text-xs-center mb-0 pb-0">
-      <v-flex xs12 class="my-0 py-0">
-        <v-text-field
-          v-model="newTaskDes"
-          :append-outer-icon="newTaskDes ? 'fas fa-paper-plane fa-2x' : ''"
-          outline
-          clear-icon="far fa-times-circle"
-          clearable
-          label="Add new to-do item"
-          type="text"
-          @click:append="toggleMarker"
-          @click:append-outer="addToDo"
-          @click:clear="clearMessage"
-          v-on:keyup.13="addToDo"
-          autofocus
-        ></v-text-field>
-      </v-flex>
-    </v-container>
-    <v-container class="my-0 py-0">
       <v-layout row wrap justify-space-between>
-        <v-flex xs12 md5 class="my-0 py-0 text-xs-center text-md-left ">
+        <v-flex xs12>
+          <v-text-field
+            v-model="newTaskDes"
+            :append-outer-icon="newTaskDes ? 'fas fa-paper-plane fa-2x' : ''"
+            outline
+            clear-icon="far fa-times-circle"
+            clearable
+            label="Add new to-do item"
+            type="text"
+            @click:append="toggleMarker"
+            @click:append-outer="addToDo"
+            @click:clear="clearMessage"
+            v-on:keyup.13="addToDo"
+            autofocus
+          ></v-text-field>
+        </v-flex>
+        <v-flex xs12 md5 class="my-0 py-0 text-xs-center text-md-left">
           <v-btn-toggle v-model="toggle_exclusive" mandatory>
             <v-btn
               round
@@ -128,56 +126,58 @@
         </v-flex>
       </v-layout>
     </v-container>
-    <v-container class="text-xs-center">
-      <v-layout row wrap v-if="!dialog">
-        <v-container fluid>
-          <v-layout
-            row
-            wrap
-            v-for="(data, index) in filteredToDo"
-            v-bind:key="index"
-            class="elevation-2 text-xs-center align-center my-2"
-          >
-            <v-flex xs10 class="pl-4">
-              <v-checkbox
-                data-vv-name="checkbox"
-                color="blue darken-3"
-                class="black--text"
-                type="checkbox"
-                v-model="data.completed"
-              >
-                <template v-slot:label class="align-center text-align-center">
-                  <span
-                    @click.stop
-                    v-if="!data.edit"
-                    :class="data.completed ? 'cross-line' : ''"
-                    @dblclick="data.edit = true"
-                  >{{data.title}}</span>
-                  <v-text-field
-                    v-else
-                    class="align-center text-align-center"
-                    solo
-                    height="25px"
-                    hide-details
-                    :autofocus="data.edit"
-                    @click.stop
-                    @keyup.13="data.edit = false"
-                    @dblclick="data.edit = false"
-                    @blur="data.edit = false"
-                    :value="data.title"
-                    v-model="data.title"
-                  ></v-text-field>
-                </template>
-              </v-checkbox>
-            </v-flex>
-            <v-flex xs2>
-              <v-btn flat color="white" small @click="deleteToDo(data)">
-                <v-icon center class="fa-2x far fa-times-circle red--text"></v-icon>
-              </v-btn>
-            </v-flex>
-          </v-layout>
-        </v-container>
-      </v-layout>
+    <v-container class="text-xs-center pt-0 mt-0" style="min-height:450px;">
+      <v-card>
+        <v-layout row wrap v-if="!dialog">
+          <v-container fluid class="pa-0">
+            <v-layout
+              row
+              wrap
+              v-for="(data, index) in filteredToDo"
+              v-bind:key="index"
+              class="text-xs-center align-center elevation-1 my-2 grey lighten-3"
+            >
+              <v-flex xs9 sm10 class="pl-3">
+                <v-checkbox
+                  data-vv-name="checkbox"
+                  color="blue darken-3"
+                  class="black--text"
+                  type="checkbox"
+                  v-model="data.completed"
+                >
+                  <template v-slot:label class="align-center text-align-center">
+                    <span
+                      @click.stop
+                      v-if="!data.edit"
+                      :class="data.completed ? 'cross-line' : ''"
+                      @dblclick="data.edit = true"
+                    >{{data.title}}</span>
+                    <v-text-field
+                      v-else
+                      class="align-center text-align-center"
+                      solo
+                      height="25px"
+                      hide-details
+                      :autofocus="data.edit"
+                      @click.stop
+                      @keyup.13="data.edit = false"
+                      @dblclick="data.edit = false"
+                      @blur="data.edit = false"
+                      :value="data.title"
+                      v-model="data.title"
+                    ></v-text-field>
+                  </template>
+                </v-checkbox>
+              </v-flex>
+              <v-flex xs3 sm2 class="pr-1 text-xs-right">
+                <v-btn fab round outline color="red" small @click="deleteToDo(data)">
+                  <v-icon center class="fa-2x fas fa-times red--text"></v-icon>
+                </v-btn>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-layout>
+      </v-card>
     </v-container>
 
     <v-dialog v-model="dialog" hide-overlay persistent width="300">
@@ -283,9 +283,7 @@ export default {
       this.dataStore = filters.active(this.dataStore);
     },
     checkAllToDo() {
-        this.dataStore.forEach(
-          data => (data.completed = this.allCheckbox)
-        );
+      this.dataStore.forEach(data => (data.completed = this.allCheckbox));
     }
   },
   created() {},
