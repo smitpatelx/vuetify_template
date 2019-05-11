@@ -1,8 +1,7 @@
 # Vuetify ToDo App
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f18f9223-9ecb-407f-bc38-fcf367f5f913/deploy-status)](https://jsruntimevuetodo.netlify.com/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Commit status](https://img.shields.io/github/commit-status/smitpatelx/vuetify_template/vue-todo/1d46125d8968948ad42571931942ca1d87d89c3d.svg) ![Version](https://img.shields.io/github/release/smitpatelx/vuetify_template.svg)
 
 Please dont try to push on the master branch after your commits
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f18f9223-9ecb-407f-bc38-fcf367f5f913/deploy-status)](https://jsruntimevuetodo.netlify.com/)
 
 [Click here for demo](https://code.netdevv.com/vuetify_todo/todo)
 
