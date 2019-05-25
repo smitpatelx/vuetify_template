@@ -27,10 +27,10 @@
 
     <v-navigation-drawer
       v-model="drawer"
-      absolute
       temporary
-      hide-overlay
+      fixed
       width="170"
+      height="100%"
       @blur="drawer = false"
     >
       <v-list class="pa-1">
