@@ -8,6 +8,7 @@ Please dont try to push on the master branch after your commits
 ## Project setup
 
 ```
+git clone --single-branch --branch vue-todo https://github.com/smitpatelx/vuetify_template.git ./
 npm install
 ```
 
