@@ -130,51 +130,63 @@
       <v-card>
         <v-layout row wrap v-if="!dialog">
           <v-container fluid class="pa-0">
-            <v-layout
-              row
-              wrap
-              v-for="(data, index) in filteredToDo"
-              v-bind:key="index"
-              class="text-xs-center align-center elevation-1 my-2 grey lighten-3"
-            >
-              <v-flex xs9 sm10 class="pl-3">
-                <v-checkbox
-                  data-vv-name="checkbox"
-                  color="blue darken-3"
-                  class="black--text"
-                  type="checkbox"
-                  v-model="data.completed"
-                >
-                  <template v-slot:label class="align-center text-align-center">
-                    <span
-                      @click.stop
-                      v-if="!data.edit"
-                      :class="data.completed ? 'cross-line' : ''"
-                      @dblclick="data.edit = true"
-                    >{{data.title}}</span>
-                    <v-text-field
-                      v-else
-                      class="align-center text-align-center"
-                      solo
-                      height="25px"
-                      hide-details
-                      :autofocus="data.edit"
-                      @click.stop
-                      @keyup.13="data.edit = false"
-                      @dblclick="data.edit = false"
-                      @blur="data.edit = false"
-                      :value="data.title"
-                      v-model="data.title"
-                    ></v-text-field>
-                  </template>
-                </v-checkbox>
-              </v-flex>
-              <v-flex xs3 sm2 class="pr-1 text-xs-right">
-                <v-btn fab round outline color="red" small @click="deleteToDo(data)">
-                  <v-icon center class="fa-2x fas fa-times red--text"></v-icon>
-                </v-btn>
-              </v-flex>
-            </v-layout>
+            <v-scroll-x-transition group>
+              <v-layout
+                row
+                wrap
+                v-for="(data, index) in filteredToDo"
+                v-bind:key="index"
+                class="text-xs-center align-center elevation-1 white"
+              >
+                <v-flex xs9 sm10 class="pl-3">
+                  <v-checkbox
+                    data-vv-name="checkbox"
+                    color="blue darken-3"
+                    class="black--text"
+                    type="checkbox"
+                    v-model="data.completed"
+                  >
+                    <template v-slot:label class="align-center text-align-center">
+                      <span
+                        @click.stop
+                        v-if="!data.edit"
+                        :class="data.completed ? 'cross-line' : ''"
+                        @dblclick="data.edit = true"
+                      >{{data.title}}</span>
+                      <v-text-field
+                        v-else
+                        class="align-center text-align-center"
+                        solo
+                        height="25px"
+                        hide-details
+                        :autofocus="data.edit"
+                        @click.stop
+                        @keyup.13="data.edit = false"
+                        @dblclick.exact="data.edit = !data.edit"
+                        @blur="data.edit = false"
+                        :value="data.title"
+                        v-model="data.title"
+                      ></v-text-field>
+                    </template>
+                  </v-checkbox>
+                </v-flex>
+                <v-flex xs3 sm2 class="pr-3 text-xs-right">
+                  <v-scroll-x-transition>
+                    <v-icon v-if="data.completed" color="success" class="mx-2">check</v-icon>
+                  </v-scroll-x-transition>
+                  <v-scroll-x-transition>
+                    <!-- <v-btn fab round outline color="red" small @click="deleteToDo(data)"> -->
+                    <v-icon
+                      @click="deleteToDo(data)"
+                      center
+                      color="danger"
+                      class="red--text mx-2"
+                    >close</v-icon>
+                    <!-- </v-btn> -->
+                  </v-scroll-x-transition>
+                </v-flex>
+              </v-layout>
+            </v-scroll-x-transition>
           </v-container>
         </v-layout>
       </v-card>
